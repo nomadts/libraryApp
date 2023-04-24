@@ -31,6 +31,6 @@
     </mat-form-field>
   </div>
 
-  <p>Complete all fields to add the book</p>
+  <p *ngIf="!bookForm.valid">Complete all fields to add the book</p>
   <button type="submit" [disabled]="!bookForm.valid">Add</button>
 </form>
