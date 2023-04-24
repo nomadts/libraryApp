@@ -3,13 +3,13 @@
   <div>
     <mat-form-field appearance="fill">
       <mat-label>Title</mat-label>
-      <input matInput formControlName="title" required>
+      <input matInput formControlName="title" required />
     </mat-form-field>
   </div>
   <div>
     <mat-form-field appearance="fill">
       <mat-label>Author</mat-label>
-      <input matInput formControlName="author" required>
+      <input matInput formControlName="author" required />
     </mat-form-field>
   </div>
   <div>
@@ -31,6 +31,15 @@
     </mat-form-field>
   </div>
 
-  <p *ngIf="!bookForm.valid">Complete all fields to add the book</p>
-  <button mat-flat-button color="primary" type="submit"  [disabled]="!bookForm.valid">Add</button>
+  <mat-error *ngIf="!bookForm.valid"
+    >Complete all fields to add new book</mat-error
+  >
+  <button
+    mat-flat-button
+    color="primary"
+    type="submit"
+    [disabled]="!bookForm.valid"
+  >
+    Add
+  </button>
 </form>

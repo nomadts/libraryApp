@@ -1,17 +1,25 @@
-<app-book-editor (addBook)="createBook($event)"></app-book-editor>
+<div class="main-container">
+  <app-book-editor (addBook)="createBook($event)"></app-book-editor>
 
-<hr />
+  <mat-divider></mat-divider>
 
-<div class="books" *ngIf="books$ | async as books">
-  <h2>All books</h2>
-  <div class="book" *ngFor="let book of books">
-    <div *ngIf="book">
-      <h3>{{ book.title }}</h3>
-      <p>by {{ book.author }}</p>
-      <p>Published on {{ book.publicationDate.toDateString() }}</p>
-      <button mat-fab color="primary" (click)="deleteBook(book)">
-        <mat-icon>delete</mat-icon>
-      </button>
+  <div class="books" *ngIf="books$ | async as books">
+    <h2>All books</h2>
+    <div class="book" *ngFor="let book of books">
+      <mat-card *ngIf="book">
+        <mat-card-header>
+          <mat-card-title>{{ book.title }}</mat-card-title>
+          <mat-card-subtitle>by {{ book.author }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Published on {{ book.publicationDate.toDateString() }}</p>
+        </mat-card-content>
+        <mat-card-actions align="end">
+          <button mat-icon-button color="accent" (click)="deleteBook(book)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
     </div>
   </div>
 </div>
