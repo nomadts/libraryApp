@@ -1,5 +1,7 @@
 # LibraryApp
 
+App is deployed and accessed via the following link https://library-app-hazel-eight.vercel.app/ 
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
 
 ## Development server
