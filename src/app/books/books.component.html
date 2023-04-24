@@ -9,7 +9,9 @@
       <h3>{{ book.title }}</h3>
       <p>by {{ book.author }}</p>
       <p>Published on {{ book.publicationDate.toDateString() }}</p>
-      <button (click)="deleteBook(book)">Delete</button>
+      <button mat-fab color="primary" (click)="deleteBook(book)">
+        <mat-icon>delete</mat-icon>
+      </button>
     </div>
   </div>
 </div>
