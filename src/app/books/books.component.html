@@ -1,3 +1,7 @@
+<app-book-editor (addBook)="createBook($event)"></app-book-editor>
+
+<hr />
+
 <div class="books" *ngIf="books$ | async as books">
   <div class="book" *ngFor="let book of books">
     <div *ngIf="book">
@@ -8,5 +12,3 @@
     </div>
   </div>
 </div>
-<hr />
-<app-book-editor (addBook)="createBook($event)"></app-book-editor>
