@@ -3,7 +3,6 @@ import {
   createFeatureSelector,
   createSelector,
 } from '@ngrx/store';
-import { Book } from '../books/book.model';
 import * as fromBooks from './books/books.reducer';
 
 export interface AppState {

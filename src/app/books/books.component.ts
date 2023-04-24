@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable, tap } from 'rxjs';
 import { selectAllBooks } from '../state';
@@ -12,17 +12,20 @@ import { Book, BookEvent } from './book.model';
   templateUrl: './books.component.html',
   styleUrls: ['./books.component.scss'],
 })
-export class BooksComponent {
+export class BooksComponent implements OnInit {
   books$: Observable<(Book | undefined)[]>;
 
   maxId = 0;
 
   constructor(private store: Store<{ books: BooksState }>) {
-    this.store.dispatch(loadBooks(initialBooks));
     this.books$ = this.store.pipe(
       select(selectAllBooks),
       tap((books) => books.forEach((book) => this.updateMaxId(book.id)))
     );
+  }
+
+  ngOnInit(): void {
+    this.store.dispatch(loadBooks(initialBooks));
   }
 
   updateMaxId(id: number) {
