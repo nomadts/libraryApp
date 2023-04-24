@@ -32,5 +32,5 @@
   </div>
 
   <p *ngIf="!bookForm.valid">Complete all fields to add the book</p>
-  <button type="submit" [disabled]="!bookForm.valid">Add</button>
+  <button mat-flat-button color="primary" type="submit"  [disabled]="!bookForm.valid">Add</button>
 </form>
