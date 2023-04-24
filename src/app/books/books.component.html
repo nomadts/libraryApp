@@ -3,6 +3,7 @@
 <hr />
 
 <div class="books" *ngIf="books$ | async as books">
+  <h2>All books</h2>
   <div class="book" *ngFor="let book of books">
     <div *ngIf="book">
       <h3>{{ book.title }}</h3>
