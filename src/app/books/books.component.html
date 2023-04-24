@@ -1,0 +1,12 @@
+<div class="books" *ngIf="books$ | async as books">
+  <div class="book" *ngFor="let book of books">
+    <div *ngIf="book">
+      <h3>{{ book.title }}</h3>
+      <p>by {{ book.author }}</p>
+      <p>Published on {{ book.publicationDate.toDateString() }}</p>
+      <button (click)="deleteBook(book)">Delete</button>
+    </div>
+  </div>
+</div>
+<hr />
+<app-book-editor (addBook)="createBook($event)"></app-book-editor>

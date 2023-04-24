@@ -1,0 +1,33 @@
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+  <h2>Add a Book</h2>
+  <div>
+    <label for="title">Title: </label>
+    <input type="text" id="title" formControlName="title" required />
+  </div>
+  <div>
+    <label for="author">Author: </label>
+    <input type="text" id="author" formControlName="author" required />
+  </div>
+  <div>
+    <label for="publicationDate">Publication Date: </label>
+    <mat-form-field appearance="fill">
+      <mat-label>Choose a date</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        id="publicationDate"
+        formControlName="publicationDate"
+        required
+      />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <p>Complete all fields to add the book</p>
+  <button type="submit" [disabled]="!bookForm.valid">Add</button>
+</form>
